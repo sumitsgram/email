@@ -2,6 +2,7 @@ import React from "react";
 import "../style/EmailList.css"; // Add CSS for styling
 
 const EmailList = ({ emails, handleSelectEmail, selectedEmail }) => {
+  
   return (
     <div className="email-list">
       {emails.map((email) => (
