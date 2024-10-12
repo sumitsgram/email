@@ -6,14 +6,12 @@ import "../style/Home.css";
 const Home = () => {
   const [emails, setEmails] = useState([]);
   const [selectedEmail, setSelectedEmail] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null); // New state for error handling
   const [filter, setFilter] = useState("all"); // Track current filter
 
   // Fetch emails when the component loads
   useEffect(() => {
     const getEmails = async () => {
-      setLoading(true);
       setError(null); // Reset error state before fetching
       try {
         const emailData = await fetchEmails();
@@ -21,7 +19,6 @@ const Home = () => {
       } catch (err) {
         setError("Failed to load emails.");
       }
-      setLoading(false);
     };
 
     getEmails();
@@ -29,7 +26,6 @@ const Home = () => {
 
   // Handle selecting an email
   const handleSelectEmail = async (id) => {
-    setLoading(true);
     setError(null);
     try {
       const emailDetails = await fetchEmailDetails(id); // Fetch email details
@@ -41,7 +37,6 @@ const Home = () => {
     } catch (err) {
       setError("Failed to load email details.");
     }
-    setLoading(false);
   };
 
   // Handle marking/unmarking an email as favorite
@@ -107,25 +102,18 @@ const Home = () => {
       <div className="email-container">
         {/* Master section: Email List */}
         <div className="email-master">
-          {loading && <p>Loading emails...</p>}
-          {!loading && (
-            <EmailList
-              emails={filteredEmails}
-              handleSelectEmail={handleSelectEmail}
-              selectedEmail={selectedEmail}
-            />
-          )}
+          <EmailList
+            emails={filteredEmails}
+            handleSelectEmail={handleSelectEmail}
+            selectedEmail={selectedEmail}
+          />
         </div>
 
         {/* Slave section: Email Details */}
         <div className="email-slave">
-          {loading ? (
-            <div className="placeholder">
-              <p>Loading email...</p>
-            </div>
-          ) : selectedEmail ? (
+          {selectedEmail ? (
             <div className="email-details">
-              <h2>{selectedEmail.subject}</h2>
+              <h2>{selectedEmail.title}</h2>
               <p>{selectedEmail.body}</p>
               <span>
                 {new Date(selectedEmail.date).toLocaleString("en-GB", {
