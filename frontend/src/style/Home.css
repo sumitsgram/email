@@ -1,6 +1,7 @@
 .email-container {
   display: flex;
   height: 80vh;
+  color: #636363;
 }
 
 .email-master {
@@ -33,12 +34,6 @@
   font-size: 16px;
 }
 
-.email-details span {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
-}
 
 .favorite-btn {
   margin-top: 10px;
@@ -60,21 +55,11 @@
   background-color: #E54065;
 }
 
-.email-details h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.email-details p {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
 .email-details span {
   display: block;
   margin-top: 10px;
   font-size: 14px;
-  color: #666;
+  color: #636363;
 }
 
 .filter-options {
@@ -90,6 +75,7 @@
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   transition: background-color 0.3s ease;
 }
 
@@ -111,6 +97,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .email-master {
@@ -137,11 +124,13 @@
 
 .email-details h2 {
   font-size: 1.5rem;
+  color: #636363;
 }
 
 .email-details p {
   margin-top: 10px;
   font-size: 1rem;
+  color: #636363;
 }
 
 .email-details span {

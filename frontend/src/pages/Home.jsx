@@ -75,7 +75,7 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <h1>Email Client</h1>
+      <h1>Email</h1>
 
       {/* Error state */}
       {error && <div className="error-message">{error}</div>}
